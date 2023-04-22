@@ -1,36 +1,26 @@
 from turtle import Turtle, Screen
 
-import heroes
+from prettytable import PrettyTable
 
-print(heroes.gen())
+x = PrettyTable()
 
-ayan = Turtle()
-# print(dir(method for method in dir(ayan) if not method.startswith('_')))
-ayan.shape("turtle")
+x.add_column("Pokemon Name", ["Pikachu", "Squirtle", "Charmander"])
+x.add_column("Type", ["Electric", "Water", "Fire"])
 
-ayan.color("red", "yellow")
-ayan.shapesize(5, 5, 3)
+x.align["Pokemon Name"] = "l"
+x.align["Area"] = "r"
+x.align["Pikachu"] = "r"
 
-ayan.backward(200)
+print(x)
 
-# ayan.forward(200)
-# ayan.left(90)
-# ayan.forward(200)
-# ayan.right(90)
-# ayan.forward(200)
-# ayan.right(90)
+# ayan = Turtle()
 #
-# ayan.forward(200)
-# ayan.right(90)
-# ayan.forward(200)
-# ayan.left(90)
-# ayan.forward(200)
-# ayan.left(90)
-# ayan.forward(200)
-# ayan.right(90)
-# ayan.forward(200)
-# ayan.right(90)
-
-canvas = Screen()
-# canvas.setup(width=500, height=400)
-canvas.exitonclick()
+# ayan.shape("turtle")
+#
+# ayan.color("red", "yellow")
+#
+# ayan.backward(200)
+#
+# canvas = Screen()
+# # canvas.setup(width=500, height=400)
+# canvas.exitonclick()
