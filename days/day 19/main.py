@@ -1,43 +1,52 @@
+from random import randint
 from turtle import Turtle, Screen
 
-
-aktos = Turtle()
 screen = Screen()
+screen.setup(width=500, height=500)
+screen.bgcolor("black")
 screen.listen()
+color_name = screen.textinput(title="Select the color", prompt="Enter the color you want to select: ")
+
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+colors.sort(reverse=True)
+turtles = []
+
+for color in colors:
+    turtle = Turtle("turtle")
+    turtle.color(color)
+    turtle.penup()
+    turtle.goto(x=-230, y=colors.index(color) * 50 - 125)
+    turtles.append(turtle)
 
 
-def move_forward():
-    aktos.forward(10)
-
-def move_backward():
-    aktos.backward(10)
-
-def turn_left():
-    aktos.setheading(aktos.heading()-10)
-    # aktos.left(10)
-def turn_right():
-    # aktos.right(10)
-    aktos.setheading(aktos.heading()-10)
-
-def clear():
-    aktos.clear()
-    aktos.penup()
-    aktos.home()
-    aktos.pendown()
+x = Turtle()
 
 
-
-screen.onkey(key="w", fun=move_forward)
-screen.onkey(key="s", fun=move_backward)
-screen.onkey(key="a", fun=turn_left)
-screen.onkey(key="d", fun=turn_right)
-screen.onkey(key="c", fun=clear)
-
-
+def line():
+    x.backward(250)
+    x.dot(25, "yellow")
+    x.color("white")
+    x.forward(500)
+    x.backward(250)
 
 
+line()
+x.setheading(90)
+line()
 
+is_play = False
+if color_name:
+    is_play = True
 
-
+while is_play:
+    for turtle in turtles:
+        turtle.forward(randint(0, 10))
+        if turtle.xcor() > 230:
+            is_play = False
+            winning_color = turtle.pencolor()
+            if winning_color == color_name:
+                print(f"You won! The {winning_color} turtle is the winner!")
+            else:
+                print(f"You lost! The {winning_color} turtle is the winner!")
 
 screen.exitonclick()
