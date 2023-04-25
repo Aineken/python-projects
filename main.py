@@ -1,28 +1,20 @@
-from turtle import Turtle, Screen
+import turtle
+import math
 
-from prettytable import PrettyTable
+# Set up the turtle
+t = turtle.Turtle()
+t.speed(0)
+t.penup()
+t.goto(0, -200)
+t.pendown()
 
-x = PrettyTable()
+# Draw the circle
+r = 200
+circumference = 2 * math.pi * r
+n = 100
+angle = 360 / n
+for i in range(n):
+    t.forward(circumference / n)
+    t.left(angle)
 
-x.add_column("Pokemon Name", ["Pikachu", "Squirtle", "Charmander"])
-x.add_column("Type", ["Electric", "Water", "Fire"])
-
-x.align["Pokemon Name"] = "l"
-x.align["Area"] = "r"
-x.align["Pikachu"] = "r"
-
-print(x)
-
-# ayan = Turtle()
-#
-# ayan.shape("turtle")
-#
-# ayan.color("red", "yellow")
-#
-# ayan.backward(200)
-#
-# canvas = Screen()
-# # canvas.setup(width=500, height=400)
-# canvas.exitonclick()
-
-
+turtle.done()
