@@ -1,30 +1,28 @@
-from turtle import Turtle, Screen
+from turtle import Screen
+import time
+from snake import Snake
 
 screen = Screen()
+screen.listen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("my snake game")
 screen.tracer(0)
 
-snake = []
-
-for number in range(3):
-    turtle = Turtle(shape="square")
-    turtle.color("white")
-    turtle.penup()
-    turtle.goto(number * -20, 0)
-    snake.append(turtle)
-
-def move_forward():
-    for each_snake in snake:
-        each_snake.forward(20)
-        screen.update()
+snake = Snake()
+screen.onkey(snake.left, "a")
+screen.onkey(snake.down, "s")
+screen.onkey(snake.right, "d")
+screen.onkey(snake.up, "w")
 
 is_game_on = True
-count = 0
-while count<30:
-    move_forward()
-    count += 1
+
+while is_game_on:
+    screen.update()
+    time.sleep(0.1)
+    snake.move()
+
+
 
 
 screen.exitonclick()
