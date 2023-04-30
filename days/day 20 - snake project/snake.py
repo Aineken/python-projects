@@ -7,8 +7,7 @@ RIGHT = 0
 DOWN = 270
 STEP_MOVE = 20
 
-
-
+SNAKE_LENGTH = 5
 
 
 class Snake:
@@ -18,12 +17,19 @@ class Snake:
         self.head = self.snake[0]
 
     def create_snake(self):
-        for number in range(5):
+        for number in range(SNAKE_LENGTH):
             turtle = Turtle("circle")
-            turtle.color((randint(0,255),randint(0,255),randint(0,255)))
+            turtle.color((randint(0, 255), randint(0, 255), randint(0, 255)))
             turtle.penup()
             turtle.goto(number * -STEP_MOVE, 0)
             self.snake.append(turtle)
+
+    def extend(self):
+        turtle = Turtle("circle")
+        turtle.color((randint(0, 255), randint(0, 255), randint(0, 255)))
+        turtle.penup()
+        turtle.goto(self.snake[-1].position())
+        self.snake.append(turtle)
 
     def move(self):
         for snake_number in range(len(self.snake) - 1, 0, -1):
