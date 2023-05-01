@@ -28,7 +28,7 @@ is_game_on = True
 while is_game_on:
 
     screen.update()
-    time.sleep(0.1)
+    time.sleep(ball.move_speed)
     ball.move()
 
     if ball.ycor() > 280 or ball.ycor() < -280:
