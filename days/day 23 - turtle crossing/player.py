@@ -15,8 +15,13 @@ class Player(Turtle):
         self.goto(STARTING_POSITION)
 
     def up(self):
-        self.forward(MOVE_DISTANCE)
+        if self.ycor() < FINISH_LINE_Y:
+            self.forward(MOVE_DISTANCE)
+
+    def reset_position(self):
+        self.goto(STARTING_POSITION)
 
     def game_over(self):
-        pass
+        self.goto(0, 0)
+        self.write("GAME OVER", align="center", font=("Courier", 24, "normal"))
 
