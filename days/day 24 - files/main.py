@@ -12,7 +12,7 @@ with open("./Input/Names/invited_names.txt") as names_file:
 #
 # with open("./Input/Letters/starting_letter.txt") as letter_file:
 #     letter_contents = letter_file.read()
-#     for name in names:
+#     for name in names.py:
 #         stripped_name = name.strip("")
 #         print(stripped_name)
 #         new_letter = letter_contents.replace("[name]", stripped_name)
