@@ -27,6 +27,7 @@ while len(state_numbers) < 50:
     elif answer_state == "Exit":
         df = DataFrame(states)
         df.to_csv("states_to_learn.csv")
+        break
 
     screen.update()
     time.sleep(0.1)
