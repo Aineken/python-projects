@@ -13,6 +13,8 @@ states = data["state"].to_list()
 
 state_numbers = []
 
+tim = Turtle()
+tim.goto()
 
 while len(state_numbers) < 50:
     numbers = f"{len(state_numbers)}/{len(states)}"
